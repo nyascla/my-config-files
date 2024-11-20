@@ -119,3 +119,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # @@@ ALIAS @@@
 alias copy="xclip -selection clipboard"
+alias ssh="kitty +kitten ssh $1"
