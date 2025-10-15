@@ -7,3 +7,5 @@
 `Alt + C` - Búsqueda y Cambio de Directorios
 
 ## Tmux
+
+.tmux.conf
