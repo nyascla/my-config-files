@@ -65,6 +65,14 @@ install_ohmyzsh() {
     else
         info "Plugin 'zsh-autosuggestions' ya existe."
     fi
+
+    info "Instalando tema 'powerlevel10k'..."
+    # powerlevel10k theme
+    if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}/themes/powerlevel10k"
+    else
+        info "Tema 'powerlevel10k' ya existe."
+    fi
 }
 
 install_fzf() {
@@ -84,12 +92,35 @@ copy_config_files() {
     info "Archivos de configuración copiados."
 }
 
+configure_git() {
+    info "Configurando alias de Git 'acp'..."
+    # Comprueba si el alias ya existe para que el script sea idempotente.
+    if ! git config --get alias.acp > /dev/null 2>&1; then
+        git config --global alias.acp '!f() { git add -A && git commit -m "$@" && git push; }; f'
+        info "Alias 'acp' de Git creado correctamente."
+    else
+        info "El alias 'acp' de Git ya existe."
+    fi
+}
+
+install_xclip() {
+    info "Instalando xclip..."
+    if ! command -v xclip &> /dev/null; then
+        sudo apt update && sudo apt install -y xclip
+        info "xclip instalado correctamente."
+    else
+        info "xclip ya está instalado."
+    fi
+}
+
 main() {
     check_dependencies
     install_zsh
+    install_xclip
     install_ohmyzsh
     install_fzf
     copy_config_files
+    configure_git
     info "¡Instalación completada! Por favor, reinicia tu terminal o inicia una nueva sesión de zsh."
 }
 
