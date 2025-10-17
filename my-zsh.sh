@@ -113,12 +113,23 @@ install_xclip() {
     fi
 }
 
+install_eza() {
+    info "Instalando eza..."
+    if ! command -v eza &> /dev/null; then
+        sudo apt update && sudo apt install -y eza
+        info "eza instalado correctamente."
+    else
+        info "eza ya está instalado."
+    fi
+}
+
 main() {
     check_dependencies
     install_zsh
     install_xclip
     install_ohmyzsh
     install_fzf
+    install_eza
     copy_config_files
     configure_git
     info "¡Instalación completada! Por favor, reinicia tu terminal o inicia una nueva sesión de zsh."
