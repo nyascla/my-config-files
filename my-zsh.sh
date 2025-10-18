@@ -65,14 +65,6 @@ install_ohmyzsh() {
     else
         info "Plugin 'zsh-autosuggestions' ya existe."
     fi
-
-    info "Instalando tema 'powerlevel10k'..."
-    # powerlevel10k theme
-    if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}/themes/powerlevel10k"
-    else
-        info "Tema 'powerlevel10k' ya existe."
-    fi
 }
 
 install_fzf() {
@@ -113,23 +105,12 @@ install_xclip() {
     fi
 }
 
-install_eza() {
-    info "Instalando eza..."
-    if ! command -v eza &> /dev/null; then
-        sudo apt update && sudo apt install -y eza
-        info "eza instalado correctamente."
-    else
-        info "eza ya está instalado."
-    fi
-}
-
 main() {
     check_dependencies
     install_zsh
     install_xclip
     install_ohmyzsh
     install_fzf
-    install_eza
     copy_config_files
     configure_git
     info "¡Instalación completada! Por favor, reinicia tu terminal o inicia una nueva sesión de zsh."
