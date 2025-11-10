@@ -1,0 +1,15 @@
+{
+    // --- Config ---
+    "files.autoSave": "afterDelay",
+    "diffEditor.codeLens": true,
+
+    // --- Editor ---
+    "editor.rulers": [80, 120],
+
+    // --- Side bar ---
+    "workbench.tree.renderIndentGuides": "always", 
+    "workbench.tree.indent": 35,
+
+    // --- Latex ---
+    "latex-workshop.latex.outDir": "%DIR%/build"
+}
