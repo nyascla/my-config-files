@@ -10,6 +10,59 @@
     "workbench.tree.renderIndentGuides": "always", 
     "workbench.tree.indent": 35,
 
+    
     // --- Latex ---
-    "latex-workshop.latex.outDir": "%DIR%/build"
-}
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    
+    // --- Gemini ---
+    "geminicodeassist.project": "knitted-moon-2ls63",
+    "geminicodeassist.inlineSuggestions.enableAuto": true,
+
+    // --- Vim ---
+    "vim.smartRelativeLine": true, 
+    "vim.leader": "<space>",
+    "vim.useCtrlKeys": false,
+
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    
+    "vim.easymotion": true, // <leader> + <leader> + w
+
+    "vim.insertModeKeyBindings": [
+        {
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+        }
+    ],
+
+    "vim.normalModeKeyBindings": [
+        
+        // --- Mapeos para dividir la pantalla ---
+        {
+            "before": ["<leader>", "v"],
+            "commands": ["workbench.action.splitEditorRight"]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "commands": ["workbench.action.splitEditorDown"]
+        },
+
+        // --- Mapeos para moverse entre paneles ---
+        {
+            "before": ["<leader>", "h"],
+            "commands": ["workbench.action.navigateLeft"]
+        },
+        {
+            "before": ["<leader>", "j"],
+            "commands": ["workbench.action.navigateDown"]
+        },
+        {
+            "before": ["<leader>", "k"],
+            "commands": ["workbench.action.navigateUp"]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "commands": ["workbench.action.navigateRight"]
+        }
+    ],
+} 
